@@ -104,8 +104,8 @@
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
 </head>
 <body>
-
   <ion-content>
+    <br><ion-button id="homeButton" href="index.html"><strong>Back</strong></ion-button>
     <div class="section-title">Getting Started with CountMyStuff</div>
 
     <div class="instruction-box">
@@ -179,24 +179,5 @@
     <div class="bottom-spacer"></div>
   </ion-content>
 
-  <script>
-    async function updateAuthUI() {
-      try {
-        const res = await fetch('/api/user');
-        if (!res.ok) throw new Error('not authenticated');
-        const data = await res.json();
-        document.getElementById('loginBtn').style.display = 'none';
-        document.getElementById('logoutBtn').style.display = 'inline-block';
-        document.getElementById('userNameDisplay').textContent = `Logged in as: ${data.name}`;
-      } catch {
-        document.getElementById('loginBtn').style.display = 'inline-block';
-        document.getElementById('logoutBtn').style.display = 'none';
-        document.getElementById('userNameDisplay').textContent = '';
-      }
-    }
-    window.addEventListener('DOMContentLoaded', () => {
-      updateAuthUI();
-    });
-  </script>
 </body>
 </html>
