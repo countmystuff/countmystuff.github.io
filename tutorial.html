@@ -1,0 +1,202 @@
+<!--
+  CountMyStuff — © 2025 Duncan Anderson. All Rights Reserved.
+  This code is proprietary. You may not copy, modify, or redistribute 
+  without express written permission.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    /* Force the initial paint to be black */
+    html, body {
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    ion-content {
+      --background: url('bg.png');
+      --background-size: cover;
+      padding: 20px;
+      padding-bottom: calc(env(safe-area-inset-bottom) + 120px);
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .left-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    ion-button#homeButton {
+      --background: #4682b4 !important;
+      background: #4682b4 !important;
+      --color: #000000 !important;
+      color: #000000 !important;
+    }
+    .section-title {
+      color: #ffa;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.5em;
+    }
+    .instruction-box {
+      background-color: rgba(59, 59, 59, 0.5);
+      padding: 15px 20px;
+      margin: 15px auto;
+      border-radius: 8px;
+      max-width: 800px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .instruction-box p {
+      color: #fff;
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+    .instruction-box ul {
+      margin: 10px 20px;
+      padding-left: 20px;
+    }
+    .instruction-box li {
+      color: #fff;
+      margin: 5px 0;
+      font-size: 1em;
+      line-height: 1.4;
+    }
+    .bottom-spacer {
+      height: 200px;
+      width: 100%;
+    }
+      .hidden {
+        display: none !important;
+      }      
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.3em;
+        margin-top: 15px;
+      }
+      .instruction-box {
+        padding: 12px 15px;
+      }
+      .instruction-box p,
+      .instruction-box li {
+        font-size: 0.95em;
+      }
+      .bottom-spacer {
+        height: 150px;
+      }    
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorials</title>
+  <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+</head>
+<body>
+
+  <ion-content>
+    <div class="section-title">Getting Started with CountMyStuff</div>
+
+    <div class="instruction-box">
+      <p><strong>1. Distributor List:</strong> Go to the Distributor List and add your distributors and their contact information. This ensures that when you generate orders, separate emails are generated for each distributor automatically.</p>
+    </div>
+
+    <div class="instruction-box">
+      <p><strong>2. Everything On Hand:</strong> Next, navigate to the Everything On Hand page. Here, add all products and ingredients you currently have in your business (e.g., PBR, Miller Lite, bags of sugar). For each item:</p>
+      <ul>
+        <li>Set a <em>Par Level</em> so you’ll know when it’s time to reorder.</li>
+        <li>Select the appropriate <em>Distributor</em> for that item, so orders go to the right contact.</li>
+      </ul>
+      <p>This step helps you maintain accurate inventory levels and automate order generation.</p>
+    </div>
+
+    <div class="instruction-box">
+      <p><strong>3. Do Your Counts (Count By Room):</strong> After adding items to Everything On Hand, go to Count By Room:</p>
+      <ul>
+        <li><em>Add Rooms</em> representing different areas of your business—e.g., Kitchen, Storeroom, Bar.</li>
+        <li>Within each room, <em>Add Areas</em> such as shelves or wells—for example, “Prep Rack,” “Speed Rail,” “Call Rail.”</li>
+        <li>Once areas are set up, you can begin adding items to each area:
+          <ul>
+            <li>Tap <strong>Add Item</strong> on an area to bring up a list of all items from Everything On Hand.</li>
+            <li>Select the items you have in that area. We recommend adding them in the order you will count them.</li>
+            <li>When you tap an item, you’ll enter the count screen. Use the +1 and –1 buttons to adjust, or enter a <strong>Custom Quantity</strong> directly. For open items like liquor bottles, kegs, or ingredients, use the <strong>Partial Increment</strong> buttons (10%, 20%, etc.).</li>
+            <li>Swipe left or right on the count screen to move to the next or previous item. This way, you can physically move down a shelf and swipe through items, making counting fast and efficient.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<!--
+    <div class="instruction-box">
+      <p><strong>4. Generate Order:</strong> When you’ve completed your counts and you’re ready to reorder, go to the Generate Order page:</p>
+      <ul>
+        <li>The app checks all items where your current <em>Quantity</em> is below the <em>Par Level</em> you set.</li>
+        <li>Items are grouped by their assigned <em>Distributor</em>, so each distributor gets a separate order.</li>
+        <li>You can choose to <em>Order in Cases</em> or by individual units for each item by toggling the Use cases switch for each item.</li>
+        <li>When ordering by case, the <strong>Round up</strong> button adds one extra case for any item whose current case‐only quantity falls short of your par level but would exceed it if you ordered one more case.</li>
+      </ul>
+      <p>Once your settings are in place, the app displays each distributor’s order. You can then copy their email address and the order details to paste into an e-mail.</p>
+    </div>
+-->
+
+    <div class="instruction-box">
+      <p><strong>4. Generate Order:</strong> When you’ve completed your counts and you’re ready to reorder, go to the Generate Order page:</p>
+      <ul>
+        <li>The app checks all items where your current <em>Quantity</em> is below the <em>Par Level</em> you set.</li>
+        <li>Items are grouped by their assigned <em>Distributor</em>, so each distributor gets a separate order.</li>
+        <li>At the top of the page, you can customize the e-mail subject. Enter your desired text in the “Email Subject” field and click <strong>Save</strong>. This setting persists across page reloads.</li>
+        <li>You can choose to <em>Order in Cases</em> or by individual units for each item by toggling the Use cases switch for each item.</li>
+        <li>When ordering by case, the <strong>Round up</strong> button adds one extra case for any item whose current case‐only quantity falls short of your par level but would exceed it if you ordered one more case.</li>
+        <li>Items not ordered by case show manual <strong>+ / –</strong> buttons to adjust the order count more precisely.</li>
+        <li>If you need to start fresh, click the <strong>Reset All Changes</strong> button at the top of the page. You’ll be asked to confirm before all toggles and manual counts are cleared and saved.</li>
+      </ul>
+      <p>Once your settings are in place, each distributor’s order appears in its table. You have two ways to proceed:</p>
+      <ul>
+        <li><strong>Copy Order</strong>: copies the order text to your clipboard, ready to paste into any message.</li>
+        <li><strong>Generate E-mail</strong>: opens your default mail client with the distributor’s address, your custom subject, and the full order in the body.</li>
+      </ul>
+      <p><em>Windows users:</em> Before using <strong>Generate E-mail</strong>, make sure you have a default mail app set by going to <strong>Settings &gt; Apps &gt; Default Apps &gt; Email</strong> and choosing your preferred client. If you go to a website to access your e-mail, you preferred client will be your browser. For example, Chrome, Firefox etc.</p>
+    </div>
+
+    <div class="instruction-box">
+      <p><strong>5. Export Your Data:</strong></p>
+      <ul>
+        <li>Generate clean PDF summaries of everything on hand as a single list, organized by room, or grouped by distributor.</li>
+    </div>    
+
+
+    <!-- Big empty box to create blank space at bottom -->
+    <div class="bottom-spacer"></div>
+  </ion-content>
+
+  <script>
+    async function updateAuthUI() {
+      try {
+        const res = await fetch('/api/user');
+        if (!res.ok) throw new Error('not authenticated');
+        const data = await res.json();
+        document.getElementById('loginBtn').style.display = 'none';
+        document.getElementById('logoutBtn').style.display = 'inline-block';
+        document.getElementById('userNameDisplay').textContent = `Logged in as: ${data.name}`;
+      } catch {
+        document.getElementById('loginBtn').style.display = 'inline-block';
+        document.getElementById('logoutBtn').style.display = 'none';
+        document.getElementById('userNameDisplay').textContent = '';
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      updateAuthUI();
+    });
+  </script>
+</body>
+</html>
