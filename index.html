@@ -116,7 +116,24 @@
       --color: #d69027;
       border-width: 3px;
       border-style: solid;
-    }    
+    }
+
+    .about-button {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+      padding-bottom: env(safe-area-inset-bottom, 20px); /* avoid mobile bottom bars */
+    }
+
+    .about-button ion-button {
+      --background: transparent;
+      --border-color: #acc2ca;
+      --color: #acc2ca;
+      border-width: 3px;
+      border-style: solid;
+    }     
 
     .bottom-spacer {
       height: 200px; /* extra blank space at bottom so nothing is clipped */
@@ -184,7 +201,7 @@
 
     
     <p class="lead">
-      Try out our free, in‐browser trial to explore core inventory features, no account required.  
+      Try out <a href="about-noheader.html" style="color: #65a4bd;">our</a> free, in‐browser trial to explore core inventory features, no account required.  
       <strong>Note:</strong> We save your free‐trial content temporarily, allowing you to test CountMyStuff at no charge.
       If you’d like long term storage and unrestricted access, upgrade to Premium for just $15/month.
     </p>
@@ -204,25 +221,28 @@
           <li>Unlimited rooms, areas, and item counts.</li>
           <li>Calculate and generate order e-mails using your on‐hand and par values.</li>
           <li>Generate comprehensive, exportable reports for your inventory.</li>
-          <li>Enjoy prompt support from our team. We would love to hear from you at
-            <a href="mailto:support@countmystuff.com">
-              <font color="#ffd700">support@countmystuff.com</font>
-            </a>.
-          </li>          
+          <li>Enjoy prompt support from our team. We would love to hear from you.</li>          
         </ul>
       </li>
 
       
     <div class="tut-button">
-      <ion-button href="tutorial.html">
-        Tap to read our tutorial and discover everything CountMyStuff can do!
+      <ion-button href="tutorial-noheader.html">
+        🔸 Tap to read our tutorial and discover everything CountMyStuff can do!
       </ion-button>
     </div>          
     </ul>  
 
     <p class="pricing">
       Only $15/month for full functionality—far cheaper than other solutions!
-    </p>  
+    </p>
+
+    <div class="about-button">
+      <ion-button href="about-noheader.html">
+        Learn more about us 😀
+      </ion-button>
+    </div>          
+  </ul>
 
     <!-- Extra blank area at bottom to prevent clipping on mobile -->
     <div class="bottom-spacer"></div>

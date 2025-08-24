@@ -1,0 +1,758 @@
+/*!
+  CountMyStuff — © 2025 Duncan Anderson. All Rights Reserved.
+  This code is proprietary. You may not copy, modify, or redistribute 
+  without express written permission.
+*/
+
+/* Adjust Back Button Styling */
+ion-button#backToAreas {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#addItemButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#saveButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#closeButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#addDistributorButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#decrementButton, #incrementButton, #customQuantityButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.percent-buttons ion-button {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #ffffff; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.percent-buttons ion-button.active {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #fc812f; /* Gray background */
+    --background: #fc812f; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#closeDetailButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#cancelDetailButton {
+    padding: 2px 5px; /* Reduced padding for a slimmer button */
+    font-size: 14px; /* Smaller font size */
+    height: auto; /* Dynamic height based on content */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+ion-button#addAreaButton {
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text */
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    width: 100%; /* Full width */
+    padding: 2px 5px; /* Slimmer padding */
+    margin: 10px 0; /* Vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+ion-button#addAreaButton:hover {
+    background-color: #5a9bd3; /* Hover effect */
+}
+
+/* Adjust Add Room Button Styling */
+ion-button#addRoomButton {
+    padding: 2px 5px; /* Match Back button padding */
+    font-size: 14px; /* Match Back button font size */
+    height: auto; /* Dynamic height based on content */
+    background-color: #272727; /* Gray background */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for contrast */
+    font-weight: bold;
+    border-radius: 4px; /* Slightly rounded corners */
+    width: 100%; /* Make the button span the full width of the screen */
+    margin: 10px 0; /* Add vertical spacing */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Adjust Edit Button Styling */
+ion-button#editToggle {
+    font-size: 14px;
+    padding: 5px 5px;
+    background-color: #4682b4; /* Steel Blue */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for readability */
+    font-weight: bold;
+    border-radius: 4px; /* Consistent styling with back button */
+    text-align: center;
+    width: fit-content; /* Adjust width based on content */
+}
+
+ion-button#homeButton {
+    font-size: 14px;
+    padding: 5px 5px;
+    background-color: #4682b4; /* Steel Blue */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for readability */
+    font-weight: bold;
+    border-radius: 4px; /* Consistent styling with back button */
+    text-align: center;
+    width: fit-content; /* Adjust width based on content */
+}
+
+ion-button#closeButton {
+    font-size: 14px;
+    padding: 5px 5px;
+    background-color: #4682b4; /* Steel Blue */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for readability */
+    font-weight: bold;
+    border-radius: 4px; /* Consistent styling with back button */
+    text-align: center;
+    width: fit-content; /* Adjust width based on content */
+}
+
+ion-button#addDistributorButton {
+    font-size: 14px;
+    padding: 5px 5px;
+    background-color: #4682b4; /* Steel Blue */
+    --background: #4682b4; /* Hover background */
+    color: #000000; /* Black text for readability */
+    font-weight: bold;
+    border-radius: 4px; /* Consistent styling with back button */
+    text-align: center;
+    width: fit-content; /* Adjust width based on content */
+}
+
+/* Add a hover effect for the Back and Add Room buttons */
+ion-button#backToAreas:hover,
+ion-button#addRoomButton:hover {
+    background-color: #5a9bd3; /* Slightly lighter blue on hover */
+}
+
+
+/* Dark Mode Theme with Background Image */
+body {
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 300px;
+    height: auto;
+}
+
+.no-border {
+    --border-width: 0;
+}
+
+
+/* Button container for vertically stacked buttons on index.html */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+
+/* Full-width positioning for Back and Edit buttons aligned at the top */
+.top-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Centers the buttons horizontally */
+    padding-top: 10px; /* Adds some spacing at the top */
+}
+
+/* Room and Area List Item Styling */
+.room-item, .area-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #4d4d4d;
+    border-radius: 4px;
+    background-color: #3b3b3b;
+}
+
+.item-name {
+    color: orange;
+    font-size: 1.4em; /* Adjust as needed */
+}
+
+.item-quantity {
+    color: white;
+    font-size: 1.4em; /* Adjust as needed */
+}
+
+.item-detail {
+    color: white;
+    margin: 0; /* Reset margin if needed */
+}
+
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px; /* Add spacing between buttons */
+    margin-top: 10px; /* Optional spacing above the button group */
+}
+
+.button-group ion-button {
+    flex: 1; /* Ensure buttons are equal in size */
+}
+
+.draggable-item {
+    display: flex;
+    align-items: center;
+}
+
+
+.drag-handle {
+    cursor: grab;
+    font-size: 20px;
+    color: var(--ion-text-color, #fff);
+}
+
+
+
+.room-item span, .area-item span {
+    flex: 1;
+    margin-right: 15px; /* Space between name and buttons */
+}
+
+/* Button container for Edit Name and Delete buttons */
+.room-item button, .area-item button {
+    margin-left: 10px;
+}
+
+ion-card-title {
+    color: #ffffff; /* Set the text color for card titles */
+    font-weight: bold; /* Make the title bold */
+    font-size: 1.5rem; /* Adjust font size */
+}
+
+ion-card-subtitle {
+    color: #ffa500; /* Set the text color for card subtitles */
+    font-size: 1rem; /* Adjust font size */
+    font-style: bold; 
+}
+
+/* ─── 1) Popover panel background ─── */
+ion-select-popover,
+ion-popover {
+  /* panel background color */
+  --background: #222 !important;
+}
+
+/* ─── 2) Popover wrapper & content layers ─── */
+ion-select-popover::part(popover-wrapper),
+ion-select-popover::part(popover-content),
+ion-popover::part(popover-wrapper),
+ion-popover::part(popover-content) {
+  background: #222 !important;
+}
+
+/* ─── 3) Make the “interface” container match ─── */
+ion-select-popover::part(select-interface) {
+  background: #222 !important;
+}
+
+/* ─── 4) Keep your grid container transparent ─── */
+ion-select-popover::part(select-interface-option-list) {
+  background: transparent !important;
+}
+
+/* ─── 5) Style each option “button” ─── */
+ion-select-popover::part(select-interface-option) {
+  /* button background */
+  --background: #444 !important;
+  /* text color & size */
+  color: #fff !important;
+  font-size: 0.9rem !important;
+  /* rounding & padding */
+  --border-radius: 6px !important;
+  padding: 6px 0 !important;
+  margin: 4px 0 !important;
+}
+
+
+
+
+/* Form Styling */
+form {
+    background-color: #3b3b3b;
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form h2 {
+    color: #ffffff;
+}
+
+/* Button Styles */
+button {
+    background-color: #dac75d;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+
+/* Inventory Display */
+#inventoryDisplay {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #3b3b3b;
+    border-radius: 8px;
+    color: #ffffff;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Data Management Section for Export/Import */
+.data-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #3b3b3b;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.data-section h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.data-container pre {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* JSON Data Display Container for global-database.html */
+.data-container {
+    background-color: #3b3b3b;
+    padding: 15px;
+    border-radius: 8px;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow-x: auto;
+    text-align: left;
+}
+
+/* Styling for the data table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em; /* Reduced font size for mobile */
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #4d4d4d;
+}
+
+th {
+    background-color: #4682b4;
+    color: #000000;
+    font-weight: bold;
+}
+
+td {
+    background-color: #2e2e2e;
+}
+
+/* Inventory Item Styling for Area Inventory */
+.inventory-item {
+    background-color: #333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*
+.quantity-controls, .percent-buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.quantity-controls input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+*/
+/* Ionic Component Styling for Dark Mode */
+ion-header, ion-toolbar, ion-content {
+    --background: transparent;
+    --color: #ffffff;
+    --ion-background-color: transparent;
+}
+
+ion-toolbar, ion-content {
+    --background: transparent;
+    --color: #ffffff;
+    --ion-background-color: transparent;
+}
+
+ion-item, ion-list {
+    --background: #3b3b3b79;
+    --ion-item-background: #3b3b3b2f;
+    --color: #ffffff;
+}
+
+
+/* Mobile-specific styling */
+@media (max-width: 600px) {
+    /* Reduce padding and font size for smaller screens */
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    /* Stack buttons horizontally on small screens */
+    .top-right {
+        position: relative;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .button {
+        padding: 12px 10px;
+        font-size: 1em;
+    }
+
+    table, th, td {
+        font-size: 0.85em;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
+
+ion-modal {
+    --background: #2e2e2e; 
+}
+
+ion-modal::part(backdrop) {
+    background: none; /* Remove the default backdrop */
+}
+
+ion-modal ion-content {
+    background: url('bg.png') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the entire modal */
+}
+
+/* your existing centered-alert rules… */
+.centered-alert .alert-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  top: 0;
+
+  /* new: force a white background */
+  --background: #ffffff;      /* Ionic’s CSS var for the card background */
+}
+
+/* if your Ionic version doesn’t honor --background on .alert-wrapper, you can fallback to: */
+.centered-alert .alert-card {
+  background: #ffffff !important;
+}
+
+
+
+/* Search button menu styling */
+
+.search-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4682b4;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+}
+
+/* Modal styling */
+.search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.search-modal.active {
+    display: flex;
+}
+
+.search-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.search-modal input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.search-modal .search-results {
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.search-results div {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.close-modal {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.description-box {
+    background-color: #ffffff1a; /* Semi-transparent white */
+    color: white;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for better visibility */
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.description-box2 {
+    background-color: #3b3b3b2f; /* Semi-transparent white */
+    color: white;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for better visibility */
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+
+  /* Add transitions for smooth swipe animations */
+  #itemDetail {
+      transition: transform 0.3s ease-in-out;
+  }
+
+  /* Smooth Swipe out animations 
+  .swipe-left {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+  }
+
+  .swipe-right {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+  }
+  */
+  /* Snappy Swipe animations */
+    .swipe-left {
+        animation: swipeLeft 0.3s ease-in-out forwards;
+    }
+
+    .swipe-right {
+        animation: swipeRight 0.3s ease-in-out forwards;
+    }
+
+    @keyframes swipeLeft {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes swipeRight {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }

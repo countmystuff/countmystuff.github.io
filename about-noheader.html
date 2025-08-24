@@ -1,0 +1,345 @@
+<!--
+  CountMyStuff — © 2025 Duncan Anderson. All Rights Reserved.
+  This code is proprietary. You may not copy, modify, or redistribute 
+  without express written permission.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About • CountMyStuff</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Ionic CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #000;
+      --card: #0f0f10;
+      --card-2: #0b0b0c;
+      --ink-1: #ffffff;
+      --ink-2: #d7d7db;
+      --ink-3: #b6b8bf;
+      --line: #23252a;
+
+      --accent: #ffb000;           /* warm amber */
+      --accent-hi: #ffd166;        /* lighter accent for glow */
+      --accent-2: #6ee7e7;         /* teal/cyan */
+      --accent-3: #7c8cff;         /* indigo */
+
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-soft: 0 8px 22px rgba(0,0,0,.28);
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--ink-2);
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: 0.01em;
+    }
+    /* ─── Header with 50%-opaque bg.png ─── */
+    ion-header ion-toolbar {
+      /* first the overlay color, then the image */
+      --background: rgb(0, 0, 0) url('bg.png') center center;
+      --color:          #fff;
+    }
+    ion-content { --background: transparent; }
+
+    /* Layered background: image + subtle vignette + decorative blobs */
+    ion-content::part(background) {
+      background:
+        radial-gradient(1200px 600px at 80% -40%, rgba(124,140,255,.15), transparent 60%),
+        radial-gradient(900px 500px at -20% 10%, rgba(255,176,0,.12), transparent 60%),
+        radial-gradient(800px 500px at 50% 120%, rgba(110,231,231,.10), transparent 60%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.158), rgba(0,0,0,.95)),
+        url('bg.png') center / cover no-repeat;
+      background-attachment: fixed;
+    }
+    @media (max-width: 768px) {
+      ion-content::part(background) { background-attachment: scroll; }
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 18px; }
+
+    /* Section shells */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+                  var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card.pad { padding: 18px; }
+    .spacer { height: 10px; }
+
+    /* Intro with portrait */
+    .intro {
+      display: grid; gap: 18px; align-items: center;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .intro { grid-template-columns: 260px 1fr; }
+    }
+    .portrait {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)),
+        var(--card-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-soft);
+    }
+    .portrait::after {
+      /* soft inner glow */
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(160px 100px at 20% 0%, rgba(255,176,0,.25), transparent 60%);
+      pointer-events: none;
+    }
+    .portrait img {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+    .portrait .placeholder {
+      display: grid; place-items: center; color: var(--ink-3); min-height: 260px; font-size: .9rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--ink-1);
+      letter-spacing: .02em;
+    }
+    .eyebrow .dot {
+      width: 8px; height: 8px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 12px rgba(255,176,0,.6);
+    }
+
+    .intro h1 {
+      margin: 6px 0 8px;
+      font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+      line-height: 1.15;
+      color: var(--ink-1);
+      background: linear-gradient(90deg, var(--ink-1), #e7e7ea 60%, #bfc2cc 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead {
+      color: var(--ink-2);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    /* Stat pills */
+    .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .pill {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .9rem;
+      color: var(--ink-2);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .pill ion-icon { font-size: 18px; color: var(--accent); }
+
+    /* Section headers with accent bar */
+    .section { margin: 14px 0; }
+    .section .head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .section .bar {
+      width: 8px; height: 28px; border-radius: 6px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 18px rgba(255,176,0,.35);
+    }
+    .section h2 {
+      margin: 0; color: var(--ink-1); font-size: 1.18rem;
+    }
+
+    .section p, .section li { color: var(--ink-2); line-height: 1.75; }
+    .section ul { margin: 8px 0 0 18px; }
+
+    /* Feature tiles */
+    .features {
+      display: grid; gap: 12px; margin-top: 8px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 680px) {
+      .features { grid-template-columns: repeat(3, 1fr); }
+    }
+    .tile {
+      background: linear-gradient(180deg, rgba(124,140,255,.06), rgba(255,255,255,0)),
+                  var(--card-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      min-height: 120px;
+      box-shadow: var(--shadow-soft);
+    }
+    .tile .t-head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+      color: var(--ink-1); font-weight: 700;
+    }
+    .tile ion-icon { color: var(--accent-3); font-size: 22px; }
+    .tile p { margin: 0; color: var(--ink-3); line-height: 1.65; }
+
+    /* Quote */
+    .quote {
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, rgba(110,231,231,.06), rgba(255,255,255,0)),
+                  #0d0d0e;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent-2);
+      border-radius: 10px;
+      font-style: italic;
+      color: #e8f6f6;
+    }
+    .bottom-spacer {
+        height: 200px;
+        width: 100%;
+    }    
+
+    /* CTA */
+    .cta h3 { margin: 0 0 10px; color: var(--ink-1); font-size: 1.15rem; }
+
+    .cta-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        justify-items: center;   /* centers the button horizontally */
+        align-items: center;
+        /* Or use place-items:center to center both axes */
+        }
+
+    @media (min-width: 560px) { .cta-row { grid-template-columns: repeat(3, 1fr); } }
+    ion-button { --height: 46px; font-size: .98rem; }
+    .btn-amber { --background: var(--accent); --color: #000; }
+    .btn-outline { --border-color: var(--line); --background: transparent; }
+
+    /* Print */
+    @media print {
+      ion-header { display:none !important; }
+      .wrap { max-width: 100%; }
+      body { background:#fff; color:#000; }
+      .card { background:#fff; border:1px solid #ddd; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <ion-content>
+    <div class="wrap">
+      <!-- Intro -->
+      <section class="card pad">
+        <div class="intro">
+          <div class="portrait" aria-hidden="true">
+            <!-- <img src="duncan.png"> -->
+            <div class="placeholder">Photo goes here</div>
+          </div>
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Hi — I’m Duncan Anderson</div>
+            <h1><font color="#a5baff">I built CountMyStuff for people like us in the service industry</font></h1>
+            <p class="lead">
+              Nearly 20 years in bars and restaurants, from washing dishes to GM, and a lifetime of curiosity for technology.
+              That mix is what drives CountMyStuff: reduce waste (time and product), cut the monotony, and make counts
+              calmer and more accurate.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="spacer"></div>
+
+      <!-- Story -->
+      <section class="card pad section">
+        <div class="head">
+          <div class="bar"></div>
+          <h2><font color="#a5baff">Where this started</font></h2>
+        </div>
+        <p>
+          I got my first job in the service industry at 15. Over the years I’ve done a bit of everything —
+          the gritty, unglamorous line work and the never-ending GM days. Alongside that, I’ve built and serviced tech,
+          written and deployed code, and kept an insatiable curiosity for how things work.
+        </p>
+        <p>
+          For about a decade I carried the same thought during counts with a clipboard (and later with overpriced software):
+          <em>there has to be a better way</em>. I wanted tools that understand the small headaches a tired manager actually
+          faces, the stuff you only notice after counting the same things over, and over...and over.
+        </p>
+        <div class="quote">
+          <font color="#eeab20">“Reduce wasted product and labor. Cut the monotony and the misery so accuracy goes up.”</font>
+        </div>
+      </section>
+
+      <!-- Focus / Features -->
+      <section class="card pad section">
+        <div class="head">
+          <div class="bar"></div>
+          <h2><font color="#a5baff">What CountMyStuff focuses on</font></h2>
+        </div>
+
+        <div class="features">
+          <div class="tile">
+            <div class="t-head"><ion-icon name="flash-outline"></ion-icon> Speed on the floor</div>
+            <p>Fewer taps and less friction so counts happen quickly and consistently.</p>
+          </div>
+
+          <div class="tile">
+            <div class="t-head"><ion-icon name="shield-checkmark-outline"></ion-icon> Accuracy by design</div>
+            <p>Simple flows and thoughtful details that help reduce mistakes and wasted product.</p>
+          </div>
+
+          <div class="tile">
+            <div class="t-head"><ion-icon name="construct-outline"></ion-icon> Practical features</div>
+            <p>Built around real industry headaches, not theoretical dashboards. Get in, count, get out, and get your day back.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Small vendor angle -->
+      <section class="card pad section">
+        <div class="head">
+          <div class="bar"></div>
+          <h2><font color="#a5baff">Why small vendors matter</font></h2>
+        </div>
+        <p>
+          I’ve always appreciated smaller vendors: they're often more accessible on price, and more personal in how they support their community.
+          Now that I’m a small vendor too, I aim for that same combination &nbsp;•&nbsp; <strong>fair pricing</strong> and
+          <strong>real, human support</strong> &nbsp;•&nbsp; So independent bars and restaurants can use tools that actually help
+          the people doing the work, and recieve the same level of care they give their guests on a daily basis.
+        </p>
+      </section>
+
+      <!-- CTA -->
+      <section class="card pad section cta">
+        <h3>I'm so excited to share this tool. Want to talk about it?</h3>
+        <div class="cta-row">
+          <ion-button href="mailto:duncan@countmystuff.com" class="btn-amber">Email Me</ion-button>
+        </div>
+      </section>
+    </div>
+    <div class="bottom-spacer"></div>
+  </ion-content>
+
+  <!-- Ionic JS -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('printBtn')?.addEventListener('click', () => window.print());
+    });
+  </script>
+</body>
+</html>
